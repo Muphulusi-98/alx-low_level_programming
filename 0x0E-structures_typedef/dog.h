@@ -1,61 +1,95 @@
-#ifndef DOG_H
+#ifndef DOG
 
-#define DOG_H
-
-
-
-        /**
-
-         * struct dog - a dog's basic info
-
-         * @name: First member
-
-         * @age: Second member
-
-         * @owner: Third member
-
-         *
-
-         * Description: Longer description
-
-         */
-
-        struct dog
-
-        {
-
-                char *name;
-
-                float age;
-
-                char *owner;
-
-        };
+#define DOG
 
 
+   /**
 
-        /**
+    * struct dog - dog class
 
-         * dog_t - typedef for struct dog
+    *
 
-         */
+    * @name: Name of the dog
 
-        typedef struct dog dog_t;
+    *
 
+    * @age: Age of the dog
 
+    *
 
-        void init_dog(struct dog *d, char *name, float age, char *owner);
+    * @owner: Owner of the dog
 
-        void print_dog(struct dog *d);
-
-        dog_t *new_dog(char *name, float age, char *owner);
-
-        void free_dog(dog_t *d);
-
-        char *_strcpy(char *dest, char *src);
-
-        int _strlen(char *s);
+    */
 
 
+   struct dog
 
-        #endif
+{
+
+   char *name;
+
+   float age;
+
+   char *owner;
+
+};
+
+
+void init_dog(struct dog *d, char *name, float age, char *owner);
+
+void print_dog(struct dog *d);
+
+
+typedef struct dog dog_t;
+
+
+dog_t *new_dog(char *name, float age, char *owner);
+
+
+void free_dog(dog_t *d);
+
+
+#endif
+
+
+=>1-init_dog.c
+
+
+#include "dog.h"
+
+
+/**
+
+* init_dog - initializes a structure of type dog
+
+* @d: pointer to structure
+
+* @name: pointer to the name of the dog
+
+* @age: age of dog
+
+* @owner: pointer to owner of dog
+
+*
+
+* Return: void
+
+*/
+
+void init_dog(struct dog *d, char *name, float age, char *owner)
+
+{
+
+   if (d)
+
+   {
+
+       d->name = name;
+
+       d->age = age;
+
+       d->owner = owner;
+
+   }
+
+}
